@@ -19,6 +19,13 @@ The project is divided into four distinct files to separate the backend logic fr
 * `ui_utils.py` — The "Graphics Engine" (Charts & CSS)
 * `app.py` — The "Dashboard" (Main Streamlit UI)
 
+### How to run
+
+Use requirements.txt to install these:
+- Streamlit
+- Plotly
+- Pandas
+
 ---
 
 ## 3. Detailed File Breakdown & Working Mechanics
