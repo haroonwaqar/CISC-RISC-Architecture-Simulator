@@ -5,7 +5,8 @@ import plotly.graph_objects as go
 from simulators import CISC, RISC
 from data import PRESETS, PLOT_BASE, SPEC_DATA, CPI_DATA, TRANSISTOR_DATA, PIPE_DATA
 from ui_utils import CUSTOM_CSS, bar_chart, pipeline_html
-
+# Initialize the Streamlit application page configuration. 
+# 'wide' layout provides more horizontal space, which is ideal for side-by-side architecture comparisons.
 st.set_page_config(page_title="CISC vs RISC", page_icon="⚡", layout="wide")
 
 st.markdown(CUSTOM_CSS, unsafe_allow_html=True)
@@ -24,6 +25,7 @@ st.markdown("""
 t1, t2, t3, t4 = st.tabs(["  01 · Concepts  ", "  02 · Simulator  ", "  03 · Pipeline  ", "  04 · Benchmarks  "])
 
 # ─────────────────────────────────────────────────────────────────────────────
+# TAB 1: CONCEPTS - Explains the high-level philosophical differences between architectures
 with t1:
     st.markdown('<div class="section-label">Architecture Philosophy</div>', unsafe_allow_html=True)
 
@@ -88,6 +90,7 @@ with t1:
     st.info("**Modern x86 CPUs secretly decode CISC instructions into micro-ops (µops) — tiny RISC-like operations — before execution.** Intel Skylake decodes up to 5 µops/cycle. The execution engine IS a RISC core. CISC is the public interface; RISC is the engine inside.")
 
 # ─────────────────────────────────────────────────────────────────────────────
+# TAB 2: SIMULATOR - Live execution of assembly code
 with t2:
     st.markdown('<div class="section-label">Interactive Instruction Simulator</div>', unsafe_allow_html=True)
 
@@ -178,6 +181,7 @@ with t2:
 """, unsafe_allow_html=True)
 
 # ─────────────────────────────────────────────────────────────────────────────
+# TAB 3: PIPELINE - Visualizes instruction pipelining and hazards
 with t3:
     st.markdown('<div class="section-label">Pipeline Visualizer</div>', unsafe_allow_html=True)
 
@@ -281,6 +285,7 @@ with t3:
     st.caption("Intel Pentium 4's 31-stage pipeline meant a 31-cycle branch penalty on misprediction — a famous design mistake.")
 
 # ─────────────────────────────────────────────────────────────────────────────
+# TAB 4: BENCHMARKS - Real-world data visualization
 with t4:
     st.markdown('<div class="section-label">Real-World Performance Data</div>', unsafe_allow_html=True)
 

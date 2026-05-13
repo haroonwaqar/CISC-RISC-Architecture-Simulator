@@ -1,5 +1,9 @@
+
+
 import plotly.graph_objects as go
 from data import PLOT_BASE
+# Custom CSS block to enforce specific branding, typography, and component styling.
+# By setting `unsafe_allow_html=True` in Streamlit, this raw CSS targets the generated DOM elements.
 
 CUSTOM_CSS = """
 <style>
@@ -98,6 +102,7 @@ def pipeline_html(n_instr: int, stages: list, colors: list, stall_cells: set = s
     header = '<div></div>' + ''.join(
         f'<div style="color:#334155;font-size:0.62rem;font-family:IBM Plex Mono;text-align:center;padding-bottom:4px">C{c+1}</div>'
         for c in range(n_cols))
+    # Wrap headers and rows into the parent CSS Grid container
     return f'''<div style="
         display:grid;
         grid-template-columns: 28px repeat({n_cols}, minmax(38px,1fr));

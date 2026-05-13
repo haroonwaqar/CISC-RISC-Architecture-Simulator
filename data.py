@@ -3,6 +3,9 @@
 # A dictionary of assembly program templates. 
 # We pair a CISC implementation and a RISC implementation for the same logical task
 # so the user can see how the assembly paradigms differ side-by-side.
+
+# In CISC, memory addresses (e.g., [100]) can be manipulated directly by the ALU (e.g., ADD).
+# In RISC, data must be loaded into registers (LOAD) before the ALU can operate on it.
 PRESETS = {
     "A + B  (add two numbers)": {
         "cisc": """; x86 CISC — add A=12, B=8\n; CISC can add memory operand directly\nDATA 100, 12        ; MEM[100] = 12\nDATA 104, 8         ; MEM[104] = 8\nMOV  EAX, [100]     ; EAX = A\nADD  EAX, [104]     ; EAX = EAX + B  ← memory operand!\nMOV  [200], EAX     ; store result""",

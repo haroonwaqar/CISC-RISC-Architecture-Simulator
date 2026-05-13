@@ -1,4 +1,20 @@
+# simulators.py
+
+# This file contains two simplified CPU architecture simulators:
+#   1. CISC Simulator  → x86-style architecture
+#   2. RISC Simulator  → MIPS-style architecture
+#
+# The purpose of these simulators is educational.
+# They demonstrate how different instruction set architectures execute
+# instructions, access memory, and consume CPU cycles.
+#
+# CISC = Complex Instruction Set Computer
+# RISC = Reduced Instruction Set Computer
+# =============================================================================
+
 class CISC:
+    # CISC instructions have variable lengths and cycle costs depending on complexity.
+    # Operations touching memory (or complex math) logically take more cycles.
     """x86-style CISC simulator — supports memory operands in most instructions"""
     CYCLE_COST = {'MOV':2,'ADD':3,'SUB':3,'IMUL':4,'INC':1,'DEC':1,'PUSH':2,'POP':2,'NOP':1}
 
@@ -85,6 +101,8 @@ class CISC:
 
 
 class RISC:
+    # RISC instructions are designed to generally complete in 1 cycle,
+    # except for memory accesses which typically take more (here, modeled as 2).
     """MIPS-style RISC simulator — load/store architecture"""
     CYCLE_COST = {'MOV':1,'LOAD':2,'STORE':2,'ADD':1,'SUB':1,'MUL':1,'AND':1,'OR':1,'NOP':1}
 
